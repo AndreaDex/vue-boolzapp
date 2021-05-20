@@ -5,8 +5,21 @@
   padding: 0;
 }
 body {
-  background-color: #dadbd5;
+  /* background: linear-gradient(to top, #dadbd5 80%, #009688); */
+  padding: 10px 0;
   font-family: Roboto, sans-serif;
+  background-color: #dadbd5;
+}
+body::before {
+  content: "";
+  display: block;
+  height: 90px;
+  background-color: #009688;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: -1;
 }
 i {
   color: #b1b1b1;
@@ -27,9 +40,10 @@ i {
 }
 /* Main Style */
 #app {
-  height: 99vh;
   width: 80%;
   margin: auto;
+  display: flex;
+  border: 1px solid black;
 }
 /** Side style */
 /* sezione profilo  */
@@ -38,14 +52,15 @@ aside {
 }
 #mio_profilo {
   padding: 15px;
+  border-right: 1px solid lightgray;
 }
 #mio_profilo > span {
   flex-grow: 2;
-  font-size: 20px;
-  font-weight: bolder;
+
   padding: 0 10px;
 }
-i.fas.fa-comment-alt {
+i.fas.fa-comment-alt,
+i.fas.fa-paperclip {
   padding: 0 10px;
 }
 /* sezione notifiche */
@@ -101,4 +116,60 @@ i.fas.fa-comment-alt {
 }
 .card_contatto span {
   padding: 0 10px;
+}
+
+/** MAIN STYLE */
+main {
+  width: 70%;
+}
+/* Contatto style */
+#contatto {
+  justify-content: space-between;
+  padding: 15px;
+}
+#info_contatto span {
+  font-size: 11px;
+  color: #7f7376;
+}
+/* Chat style */
+#chat {
+  background-image: url(../img/mine.jpg);
+  background-size: cover;
+  height: 70%;
+  display: flex;
+  padding: 30px;
+}
+#col_mandati,
+#col_ricevuti {
+  width: 45%;
+  display: flex;
+  flex-flow: column;
+}
+#col_ricevuti {
+  justify-content: flex-end;
+}
+.msg_mandati {
+  background-color: #d5f9ba;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+.msg_ricevuti {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+}
+
+/* Input chat style */
+#input_chat {
+  padding: 7px 15px;
+}
+#messaggio {
+  flex-grow: 2;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  margin: 0 10px;
 }

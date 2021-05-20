@@ -90,6 +90,11 @@ const app = new Vue({
         ],
       },
     ],
+    contattoSelezionato: {},
   },
-  methods: {},
+  methods: {
+    selezionaContatto(item) {
+      this.contattoSelezionato = item;
+    },
+  },
 });

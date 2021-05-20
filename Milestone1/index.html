@@ -74,7 +74,11 @@
 
           <!-- Lista contatti -->
           <div id="lista_contatti">
-            <div class="card_contatto" v-for="(item,index) in contacts">
+            <div
+              class="card_contatto"
+              v-for="(item,index) in contacts"
+              @click="selezionaContatto(item)"
+            >
               <img class="avatar" :src="item.avatar" alt="" />
               <span>{{item.name}}</span>
             </div>
@@ -85,9 +89,64 @@
       </aside>
 
       <main>
-        <div id="contatto"></div>
-        <div id="chat"></div>
-        <div id="comandi_chat"></div>
+        <!-- Contatto -->
+        <div id="contatto" class="bg_grey flex_center">
+          <div class="flex_center">
+            <img
+              class="avatar"
+              :src="contattoSelezionato.avatar"
+              alt="avatar profilo utente"
+            />
+            <div id="info_contatto">
+              <p>{{contattoSelezionato.name}}</p>
+              <span>ultimo accesso </span>
+            </div>
+          </div>
+
+          <div id="chat_comand">
+            <i class="fas fa-search fa-lg"></i>
+            <i class="fas fa-paperclip fa-lg"></i>
+            <i class="fas fa-ellipsis-v fa-lg"></i>
+          </div>
+        </div>
+        <!-- /Contatto -->
+
+        <!-- Chat -->
+        <div id="chat">
+          <div id="col_ricevuti">
+            <div
+              class="msg_ricevuti"
+              v-for="(item,index) in contattoSelezionato.messages"
+              v-show="item.status === 'received'"
+            >
+              <p>{{item.text}}</p>
+            </div>
+          </div>
+
+          <div id="col_mandati">
+            <div
+              class="msg_mandati"
+              v-for="(item,index) in contattoSelezionato.messages"
+              v-show="item.status === 'sent'"
+            >
+              <p>{{item.text}}</p>
+            </div>
+          </div>
+        </div>
+        <!-- /Chat -->
+
+        <!-- Input chat -->
+        <div id="input_chat" class="flex_center">
+          <i class="far fa-smile fa-lg"></i>
+          <input
+            type="text"
+            name=""
+            id="messaggio"
+            placeholder="Scrivi un messaggio"
+          />
+          <i class="fas fa-microphone fa-lg"></i>
+        </div>
+        <!-- /Input chat -->
       </main>
     </div>
     <!-- /Menu laterale -->
