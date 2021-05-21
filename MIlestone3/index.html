@@ -142,6 +142,8 @@
             name=""
             id="messaggio"
             placeholder="Scrivi un messaggio"
+            v-model="nuovoMessaggio.text"
+            @keyup.enter="inviaMessaggio"
           />
           <i class="fas fa-microphone fa-lg"></i>
         </div>

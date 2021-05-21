@@ -92,16 +92,23 @@ const app = new Vue({
     ],
     contatoreContatto: 0,
     contattoSelezionato: {},
+    nuovoMessaggio: {
+      date: Date(),
+      text: "",
+      status: "sent",
+    },
   },
   methods: {
     selezionaContatto(item, index) {
       this.contatoreContatto = index;
       this.contattoSelezionato = item;
     },
+    setData() {},
+    inviaMessaggio() {
+      this.contattoSelezionato.messages.push(this.nuovoMessaggio);
+    },
   },
   created() {
     this.contattoSelezionato = this.contacts[0];
-    console.log(this.contattoSelezionato);
-    console.log(this.contacts[0]);
   },
 });
