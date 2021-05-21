@@ -91,12 +91,17 @@ const app = new Vue({
       },
     ],
     contatoreContatto: 0,
-    contattoSelezionato: [],
+    contattoSelezionato: {},
   },
   methods: {
     selezionaContatto(item, index) {
       this.contatoreContatto = index;
       this.contattoSelezionato = item;
     },
+  },
+  created() {
+    this.contattoSelezionato = this.contacts[0];
+    console.log(this.contattoSelezionato);
+    console.log(this.contacts[0]);
   },
 });

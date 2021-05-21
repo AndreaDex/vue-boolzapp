@@ -38,6 +38,9 @@ i {
   display: flex;
   align-items: center;
 }
+.active {
+  background-color: #e9ebeb;
+}
 /* Main Style */
 #app {
   height: 100%;

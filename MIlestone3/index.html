@@ -78,6 +78,7 @@
               class="card_contatto"
               v-for="(item,index) in contacts"
               @click="selezionaContatto(item, index)"
+              :class="(contatoreContatto == index) ? 'active' : '' "
             >
               <img class="avatar" :src="item.avatar" alt="" />
               <span>{{item.name}}</span>
@@ -89,7 +90,7 @@
       </aside>
 
       <main>
-        <!-- Contatto -->
+        <!-- Contatto Attivo -->
         <div id="contatto" class="bg_grey flex_center">
           <div class="flex_center">
             <img class="avatar" :src="contattoSelezionato.avatar" alt="" />
