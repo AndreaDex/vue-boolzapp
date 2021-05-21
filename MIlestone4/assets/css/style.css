@@ -1,0 +1,199 @@
+/* COMMON */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  /* background: linear-gradient(to top, #dadbd5 80%, #009688); */
+  padding: 10px 0;
+  font-family: Roboto, sans-serif;
+  background-color: #dadbd5;
+}
+body::before {
+  content: "";
+  display: block;
+  height: 90px;
+  background-color: #009688;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  left: 0;
+  z-index: -1;
+}
+i {
+  color: #b1b1b1;
+}
+.avatar {
+  width: 50px;
+  border-radius: 50%;
+}
+
+/* Utility class */
+
+.bg_grey {
+  background-color: #eaeaea;
+}
+.flex_center {
+  display: flex;
+  align-items: center;
+}
+.active {
+  background-color: #e9ebeb;
+}
+/* Main Style */
+#app {
+  height: 550px;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  border: 1px solid black;
+}
+/** Side style */
+/* sezione profilo  */
+aside {
+  display: flex;
+  flex-flow: column;
+  width: 30%;
+  background-color: white;
+}
+#mio_profilo {
+  padding: 15px;
+  border-right: 1px solid lightgray;
+}
+#mio_profilo > span {
+  flex-grow: 2;
+
+  padding: 0 10px;
+}
+i.fas.fa-comment-alt,
+i.fas.fa-paperclip {
+  padding: 0 10px;
+}
+/* sezione notifiche */
+#notifiche {
+  background-color: #8edafc;
+  padding: 15px;
+  display: flex;
+}
+#icona_notifiche {
+  background-color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#icona_notifiche > i {
+  color: #8edafc;
+}
+#titolo_notifiche {
+  margin: auto;
+}
+#titolo_notifiche p {
+  font-weight: 700;
+  font-size: 13px;
+}
+#titolo_notifiche a {
+  font-size: 11px;
+}
+/** Sezione contatti */
+#cerca_contatti {
+  background-color: #fafafa;
+  padding: 5px 15px;
+}
+#cerca_contatti > div {
+  background-color: white;
+  padding: 5px;
+}
+#cerca_contatti input {
+  border: none;
+  height: 20px;
+  padding: 0 5px;
+  width: 90%;
+}
+#lista_contatti {
+  background-color: white;
+}
+.card_contatto {
+  padding: 5px 15px;
+  border-bottom: 1px solid lightgray;
+  display: flex;
+}
+.card_contatto span {
+  padding: 0 10px;
+}
+.card_contatto:hover {
+  cursor: pointer;
+  background-color: #e9ebeb;
+}
+
+/** MAIN STYLE */
+main {
+  display: flex;
+  flex-flow: column;
+  width: 70%;
+}
+/** Contatto Attiv style */
+#contatto {
+  justify-content: space-between;
+  padding: 15px;
+}
+#info_contatto span {
+  font-size: 11px;
+  color: #7f7376;
+}
+/** Chat style */
+#chat {
+  display: flex;
+  flex-flow: column;
+  flex-grow: 2;
+  background-image: url(../img/mine.jpg);
+  background-size: cover;
+  height: 70%;
+  padding: 30px;
+  font-size: 14px;
+  overflow: auto;
+}
+
+.msg_mandati small,
+.msg_ricevuti small {
+  font-size: 8px;
+  color: #b1b1b1;
+  text-align: right;
+  display: block;
+  margin-top: 3px;
+}
+#col_ricevuti {
+  justify-content: flex-end;
+}
+.msg_mandati {
+  background-color: #d5f9ba;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  max-width: 50%;
+}
+.msg_ricevuti {
+  background-color: white;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-right: auto;
+  max-width: 50%;
+}
+
+/* Input chat style */
+#input_chat {
+  padding: 7px 15px;
+}
+#messaggio {
+  flex-grow: 2;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  height: 40px;
+  margin: 0 10px;
+}
