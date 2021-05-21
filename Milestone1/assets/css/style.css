@@ -40,6 +40,7 @@ i {
 }
 /* Main Style */
 #app {
+  height: 100%;
   width: 80%;
   margin: auto;
   display: flex;
@@ -48,6 +49,8 @@ i {
 /** Side style */
 /* sezione profilo  */
 aside {
+  display: flex;
+  flex-flow: column;
   width: 30%;
 }
 #mio_profilo {
@@ -120,6 +123,8 @@ i.fas.fa-paperclip {
 
 /** MAIN STYLE */
 main {
+  display: flex;
+  flex-flow: column;
   width: 70%;
 }
 /* Contatto style */
@@ -133,6 +138,8 @@ main {
 }
 /* Chat style */
 #chat {
+  flex-grow: 2;
+  justify-content: space-between;
   background-image: url(../img/mine.jpg);
   background-size: cover;
   height: 70%;
