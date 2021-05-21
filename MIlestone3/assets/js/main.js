@@ -106,6 +106,7 @@ const app = new Vue({
     setData() {},
     inviaMessaggio() {
       this.contattoSelezionato.messages.push(this.nuovoMessaggio);
+      console.log(this.nuovoMessaggio);
     },
   },
   created() {

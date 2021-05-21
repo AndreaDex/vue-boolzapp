@@ -145,23 +145,18 @@ main {
 }
 /** Chat style */
 #chat {
+  display: flex;
+  flex-flow: column;
   flex-grow: 2;
-  justify-content: space-between;
   background-image: url(../img/mine.jpg);
   background-size: cover;
   height: 70%;
-  display: flex;
   padding: 30px;
   font-size: 14px;
 }
-#col_mandati,
-#col_ricevuti {
-  width: 45%;
-  display: flex;
-  flex-flow: column;
-}
-#col_mandati small,
-#col_ricevuti small {
+
+.msg_mandati small,
+.msg_ricevuti small {
   font-size: 8px;
   color: #b1b1b1;
   text-align: right;
@@ -175,13 +170,17 @@ main {
   background-color: #d5f9ba;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-left: auto;
+  max-width: 50%;
 }
 .msg_ricevuti {
   background-color: white;
   border-radius: 5px;
   padding: 10px;
-  margin: 10px;
+  margin-top: 10px;
+  margin-right: auto;
+  max-width: 50%;
 }
 
 /* Input chat style */

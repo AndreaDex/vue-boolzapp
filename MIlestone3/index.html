@@ -110,22 +110,9 @@
 
         <!-- Chat -->
         <div id="chat">
-          <div id="col_ricevuti">
+          <div v-for="(item,index) in contattoSelezionato.messages">
             <div
-              class="msg_ricevuti"
-              v-for="(item,index) in contattoSelezionato.messages"
-              v-show="item.status === 'received'"
-            >
-              <p>{{item.text}}</p>
-              <small>{{item.date}}</small>
-            </div>
-          </div>
-
-          <div id="col_mandati">
-            <div
-              class="msg_mandati"
-              v-for="(item,index) in contattoSelezionato.messages"
-              v-show="item.status === 'sent'"
+              :class="(item.status === 'received') ? 'msg_ricevuti' : 'msg_mandati' "
             >
               <p>{{item.text}}</p>
               <small>{{item.date}}</small>
