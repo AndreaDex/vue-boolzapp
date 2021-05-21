@@ -74,7 +74,7 @@ const app = new Vue({
       },
       {
         name: "Luisa",
-        avatar: "./assets/img/avatar_4.jpg",
+        avatar: "./assets/img/avatar_6.jpg",
         visible: true,
         messages: [
           {
@@ -88,6 +88,12 @@ const app = new Vue({
             status: "received",
           },
         ],
+      },
+      {
+        name: "Earl",
+        avatar: "./assets/img/avatar_4.jpg",
+        visible: true,
+        messages: [],
       },
     ],
     contatoreContatto: 0,
