@@ -99,15 +99,16 @@ const app = new Vue({
     contatoreContatto: 0,
     contattoSelezionato: {},
     nuovoMessaggio: {
-      date: Date(),
+      date: new Date().toLocaleString(),
       text: "",
       status: "sent",
     },
     rispostaAutomatica: {
-      date: Date(),
+      date: new Date().toLocaleString(),
       text: "Ehilà gamberone",
       status: "received",
     },
+    ricerca: "",
   },
   methods: {
     selezionaContatto(item, index) {
@@ -118,7 +119,7 @@ const app = new Vue({
     inviaMessaggio() {
       this.contattoSelezionato.messages.push(this.nuovoMessaggio);
       this.nuovoMessaggio = {
-        date: Date(),
+        date: "",
         text: "",
         status: "sent",
       };
@@ -128,6 +129,11 @@ const app = new Vue({
       }, 1000);
     },
   },
+  /*  computed: {
+    cercaContatto() {
+      console.log(this.contacts.name);
+    },
+  }, */
   created() {
     this.contattoSelezionato = this.contacts[0];
   },
