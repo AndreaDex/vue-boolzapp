@@ -124,16 +124,20 @@ const app = new Vue({
         status: "sent",
       };
       setTimeout(() => {
-        console.log(this.rispostaAutomatica);
         this.contattoSelezionato.messages.push(this.rispostaAutomatica);
       }, 1000);
     },
-  },
-  /*  computed: {
     cercaContatto() {
-      console.log(this.contacts.name);
+      this.contacts.forEach((element) => {
+        if (element.name.toLowerCase().includes(this.ricerca.toLowerCase())) {
+          element.visible = true;
+        } else {
+          element.visible = false;
+        }
+      });
     },
-  }, */
+  },
+  computed: {},
   created() {
     this.contattoSelezionato = this.contacts[0];
   },

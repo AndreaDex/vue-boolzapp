@@ -63,11 +63,12 @@
             <div>
               <i class="fas fa-search"></i>
               <input
-                v:model="ricerca"
+                v-model="ricerca"
                 type="text"
                 name=""
                 id="barra_ricerca"
                 placeholder="Cerca od inizia una nuova chat"
+                @keyup="cercaContatto"
               />
             </div>
           </div>
@@ -80,6 +81,7 @@
               v-for="(item,index) in contacts"
               @click="selezionaContatto(item, index)"
               :class="(contatoreContatto == index) ? 'active' : '' "
+              v-if="item.visible"
             >
               <img class="avatar" :src="item.avatar" alt="" />
               <span>{{item.name}}</span>
