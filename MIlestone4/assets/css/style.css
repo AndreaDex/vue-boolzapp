@@ -43,7 +43,7 @@ i {
 }
 /* Main Style */
 #app {
-  height: 550px;
+  height: calc(100vh - 20px);
   width: 80%;
   margin: auto;
   display: flex;
@@ -54,6 +54,7 @@ aside {
   display: flex;
   flex-flow: column;
   width: 30%;
+  height: 100%;
   background-color: white;
 }
 #mio_profilo {
@@ -98,6 +99,9 @@ i.fas.fa-paperclip {
   font-size: 11px;
 }
 /** Sezione contatti */
+#contatti {
+  height: calc(100% - 160px);
+}
 #cerca_contatti {
   background-color: #fafafa;
   padding: 5px 15px;
@@ -113,7 +117,7 @@ i.fas.fa-paperclip {
   width: 90%;
 }
 #lista_contatti {
-  height: 100%;
+  height: calc(100% - 41px);
   overflow-y: scroll;
   background-color: white;
 }
@@ -132,6 +136,7 @@ i.fas.fa-paperclip {
 
 /** MAIN STYLE */
 main {
+  height: 100%;
   display: flex;
   flex-flow: column;
   width: 70%;
@@ -168,27 +173,28 @@ main {
 #col_ricevuti {
   justify-content: flex-end;
 }
-.msg_mandati {
-  background-color: #d5f9ba;
+.msg_mandati,
+.msg_ricevuti {
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-  margin-left: auto;
-  max-width: 50%;
+  max-width: 70%;
   width: fit-content;
+}
+.msg_mandati {
+  background-color: #d5f9ba;
+
+  margin-left: auto;
 }
 .msg_ricevuti {
   background-color: white;
-  border-radius: 5px;
-  padding: 10px;
-  margin-top: 10px;
+
   margin-right: auto;
-  max-width: 50%;
-  width: fit-content;
 }
 
 /* Input chat style */
 #input_chat {
+  background-color: #f3eeea;
   padding: 7px 15px;
 }
 #messaggio {
