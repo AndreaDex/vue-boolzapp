@@ -109,6 +109,8 @@ const app = new Vue({
       status: "received",
     },
     ricerca: "",
+    show: true,
+    indiceMessaggio: 0,
   },
   methods: {
     selezionaContatto(item, index) {
@@ -135,6 +137,11 @@ const app = new Vue({
           element.visible = false;
         }
       });
+    },
+    aprimenu(index) {
+      console.log(index);
+      console.log(this.indiceMessaggio);
+      console.log(this.contattoSelezionato.messages);
     },
   },
   computed: {},

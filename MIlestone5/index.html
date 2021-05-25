@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Boolzapp</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:100,100italic,300,300italic,regular,italic,500,500italic,700,700italic,900,900italic"
+      rel="stylesheet"
+    />
+    <!-- Font Aweson CDN -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+      integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
+
+  <body>
+    <div id="app">
+      <!-- Menu laterale -->
+      <aside id="menu">
+        <!-- Sezione Profile -->
+        <div id="mio_profilo" class="bg_grey flex_center">
+          <img
+            class="avatar"
+            :src="personal_profile.avatar"
+            alt="avatar profilo utente"
+          />
+
+          <span>{{personal_profile.name}}</span>
+
+          <div id="user_comand ">
+            <i class="fas fa-circle-notch fa-lg"></i>
+            <i class="fas fa-comment-alt fa-lg"></i>
+            <i class="fas fa-ellipsis-v fa-lg"></i>
+          </div>
+        </div>
+        <!-- /Sezione Profile -->
+
+        <!-- Sezione notifiche -->
+        <div id="notifiche">
+          <div id="icona_notifiche">
+            <i class="fas fa-bell-slash fa-lg"></i>
+          </div>
+          <div id="titolo_notifiche">
+            <p>Ricevi notifiche di nuovi messaggi</p>
+            <a href="">Attiva notifiche desktop</a>
+          </div>
+        </div>
+        <!-- Sezione notifiche -->
+
+        <!-- Sezione contatti -->
+        <div id="contatti">
+          <!-- Cerca contatti  -->
+          <div id="cerca_contatti">
+            <div>
+              <i class="fas fa-search"></i>
+              <input
+                v-model="ricerca"
+                type="text"
+                name=""
+                id="barra_ricerca"
+                placeholder="Cerca od inizia una nuova chat"
+                @keyup="cercaContatto"
+              />
+            </div>
+          </div>
+          <!-- Cerca contatti  -->
+
+          <!-- Lista contatti -->
+          <div id="lista_contatti">
+            <div
+              class="card_contatto"
+              v-for="(item,index) in contacts"
+              @click="selezionaContatto(item, index)"
+              :class="(contatoreContatto == index) ? 'active' : '' "
+              v-if="item.visible"
+            >
+              <img class="avatar" :src="item.avatar" alt="" />
+              <span>{{item.name}}</span>
+            </div>
+          </div>
+          <!-- Lista contatti -->
+        </div>
+        <!-- Sezione contatti -->
+      </aside>
+
+      <main>
+        <!-- Contatto Attivo -->
+        <div id="contatto" class="bg_grey flex_center">
+          <div class="flex_center">
+            <img class="avatar" :src="contattoSelezionato.avatar" alt="" />
+            <div id="info_contatto">
+              <p>{{contattoSelezionato.name}}</p>
+              <span>Ultimo accesso il : </span>
+            </div>
+          </div>
+
+          <div id="chat_comand">
+            <i class="fas fa-search fa-lg"></i>
+            <i class="fas fa-paperclip fa-lg"></i>
+            <i class="fas fa-ellipsis-v fa-lg"></i>
+          </div>
+        </div>
+        <!-- /Contatto -->
+
+        <!-- Chat -->
+        <div id="chat">
+          <div v-for="(item,index) in contattoSelezionato.messages">
+            <div
+              :class="(item.status === 'received') ? 'msg_ricevuti' : 'msg_mandati' "
+            >
+              <p>{{item.text}}</p>
+              <small>{{item.date}}</small>
+              <div>
+                <i class="fas fa-angle-down" @click="aprimenu(index)"></i>
+                <div class="dropdown" v-show="show">
+                  <p>Info</p>
+                  <p>Cancella messaggio</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- /Chat -->
+
+        <!-- Input chat -->
+        <div id="input_chat" class="flex_center">
+          <i class="far fa-smile fa-lg"></i>
+          <input
+            type="text"
+            name=""
+            id="messaggio"
+            placeholder="Scrivi un messaggio"
+            v-model="nuovoMessaggio.text"
+            @keyup.enter="inviaMessaggio"
+          />
+          <i class="fas fa-microphone fa-lg"></i>
+        </div>
+        <!-- /Input chat -->
+      </main>
+    </div>
+    <!-- /Menu laterale -->
+    <!-- Vue cdn -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- Main js -->
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
