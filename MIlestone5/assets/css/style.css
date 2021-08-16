@@ -126,8 +126,11 @@ i.fas.fa-paperclip {
   border-bottom: 1px solid lightgray;
   display: flex;
 }
-.card_contatto span {
+.card_contatto .info {
   padding: 0 10px;
+}
+.card_contatto small {
+  font-size: 11px;
 }
 .card_contatto:hover {
   cursor: pointer;

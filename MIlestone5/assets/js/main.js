@@ -191,6 +191,22 @@ const app = new Vue({
 
       return ultimoMessaggio.date;
     },
+
+    mostraUltimoMsg(index) {
+      const messaggiContatto = this.contacts[index].messages;
+      const ultimoMsg = messaggiContatto[messaggiContatto.length - 1];
+
+      if (ultimoMsg.text.length > 10) {
+        return ultimoMsg.text.slice(0, 10) + "...";
+      }
+      return ultimoMsg.text;
+    },
+
+    mostraDataUltimoMsg(index) {
+      const messaggiContatto = this.contacts[index].messages;
+      const ultimoMsg = messaggiContatto[messaggiContatto.length - 1];
+      return ultimoMsg.date;
+    },
   },
   created() {
     this.contattoSelezionato = this.contacts[0];

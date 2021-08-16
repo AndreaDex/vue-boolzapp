@@ -76,6 +76,7 @@
 
           <!-- Lista contatti -->
           <div id="lista_contatti">
+            <!-- card -->
             <div
               class="card_contatto"
               v-for="(item,index) in contacts"
@@ -84,8 +85,15 @@
               v-if="item.visible"
             >
               <img class="avatar" :src="item.avatar" alt="" />
-              <span>{{item.name}}</span>
+              <div class="info">
+                <span>{{item.name}}</span>
+                <br />
+                <small>{{mostraUltimoMsg(index)}}</small>
+                <br />
+                <small>{{ mostraDataUltimoMsg(index)}}</small>
+              </div>
             </div>
+            <!-- card -->
           </div>
           <!-- Lista contatti -->
         </div>
