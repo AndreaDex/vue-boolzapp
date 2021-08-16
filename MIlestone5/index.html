@@ -99,7 +99,10 @@
             <img class="avatar" :src="contattoSelezionato.avatar" alt="" />
             <div id="info_contatto">
               <p>{{contattoSelezionato.name}}</p>
-              <span>Ultimo accesso il : </span>
+              <span
+                >Ultimo accesso il :
+                {{mostraUltimoAccesso(contacts[contatoreContatto])}}
+              </span>
             </div>
           </div>
 

@@ -93,7 +93,18 @@ const app = new Vue({
         name: "Earl",
         avatar: "./assets/img/avatar_4.jpg",
         visible: true,
-        messages: [],
+        messages: [
+          {
+            date: "10/06/2021 15:30:55",
+            text: "Bella Earl!",
+            status: "sent",
+          },
+          {
+            date: "10/06/2021 15:31:00",
+            text: "Ehilà Gamberone!",
+            status: "received",
+          },
+        ],
       },
     ],
     contatoreContatto: 0,
@@ -167,6 +178,18 @@ const app = new Vue({
       if (conferma) {
         this.contacts[this.contatoreContatto].messages.splice(i, 1);
       }
+    },
+
+    mostraUltimoAccesso(contact) {
+      const messaggi = contact.messages;
+
+      const ricevuti = messaggi.filter((message) => {
+        return message.status === "received";
+      });
+
+      var ultimoMessaggio = ricevuti[ricevuti.length - 1];
+
+      return ultimoMessaggio.date;
     },
   },
   created() {
