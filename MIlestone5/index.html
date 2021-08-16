@@ -119,13 +119,22 @@
             >
               <p>{{item.text}}</p>
               <small>{{item.date}}</small>
+
+              <!-- Dropdown Menu -->
               <div>
-                <i class="fas fa-angle-down" @click="aprimenu(index)"></i>
-                <div class="dropdown" v-show="show">
+                <i
+                  class="fas fa-angle-down"
+                  @click="aprimenu(index, contacts.indexOf(contacts[contattoSelezionato]))"
+                ></i>
+                <div
+                  class="dropdown"
+                  v-if="index === messaggioSelezionato.index && messaggioSelezionato.indiceContatto === contacts.indexOf(contacts[contattoSelezionato])"
+                >
                   <p>Info</p>
-                  <p>Cancella messaggio</p>
+                  <p @click="cancellaMessaggio(index)">Cancella messaggio</p>
                 </div>
               </div>
+              <!-- Dropdown Menu -->
             </div>
           </div>
         </div>

@@ -109,15 +109,20 @@ const app = new Vue({
       status: "received",
     },
     ricerca: "",
-    show: true,
-    indiceMessaggio: 0,
+
+    messaggioSelezionato: {
+      index: "",
+      indiceContatto: "",
+    },
   },
   methods: {
     selezionaContatto(item, index) {
       this.contatoreContatto = index;
       this.contattoSelezionato = item;
     },
+
     setData() {},
+
     inviaMessaggio() {
       this.contattoSelezionato.messages.push(this.nuovoMessaggio);
       this.nuovoMessaggio = {
@@ -129,6 +134,7 @@ const app = new Vue({
         this.contattoSelezionato.messages.push(this.rispostaAutomatica);
       }, 1000);
     },
+
     cercaContatto() {
       this.contacts.forEach((element) => {
         if (element.name.toLowerCase().includes(this.ricerca.toLowerCase())) {
@@ -138,13 +144,31 @@ const app = new Vue({
         }
       });
     },
-    aprimenu(index) {
-      console.log(index);
-      console.log(this.indiceMessaggio);
-      console.log(this.contattoSelezionato.messages);
+
+    aprimenu(index, indiceContatto) {
+      console.log(index, indiceContatto);
+      if (
+        this.messaggioSelezionato.index === index &&
+        this.messaggioSelezionato.indiceContatto === indiceContatto
+      ) {
+        this.messaggioSelezionato.index = false;
+        this.messaggioSelezionato.indiceContatto = false;
+      } else {
+        this.messaggioSelezionato.index = index;
+        this.messaggioSelezionato.indiceContatto = indiceContatto;
+      }
+    },
+
+    cancellaMessaggio(i) {
+      console.log(this.contacts[this.contatoreContatto]);
+      const conferma = confirm(
+        "Sei sicuro di voler cancellare questo messaggio ?"
+      );
+      if (conferma) {
+        this.contacts[this.contatoreContatto].messages.splice(i, 1);
+      }
     },
   },
-  computed: {},
   created() {
     this.contattoSelezionato = this.contacts[0];
   },
